@@ -8,8 +8,8 @@
                 <div class="col-lg-6">
                     <div class="header-widget">
                         <ul class="generic-list-item d-flex flex-wrap align-items-center fs-14">
-                            <li class="d-flex align-items-center pr-3 mr-3 border-right border-right-gray"><i class="la la-phone mr-1"></i><a href="tel:00123456789"> (00) 123 456 789</a></li>
-                            <li class="d-flex align-items-center"><i class="la la-envelope-o mr-1"></i><a href="mailto:contact@aduca.com"> contact@aduca.com</a></li>
+                            <li class="d-flex align-items-center pr-3 mr-3 border-right border-right-gray"><i class="la la-phone mr-1"></i><a href="tel:01521428574"> (+880) 1521428574</a></li>
+                            <li class="d-flex align-items-center"><i class="la la-envelope-o mr-1"></i><a href="mailto:azmaeenmihal0@gmail.com"> contact@aduca.com</a></li>
                         </ul>
                     </div><!-- end header-widget -->
                 </div><!-- end col-lg-6 -->
@@ -51,7 +51,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-2">
                         <div class="logo-box">
-                            <a href="index.html" class="logo"><img src="images/logo.png" alt="logo"></a>
+                            <router-link to="/" class="logo"><img :src="'/frontend/images/logo.png'"></router-link>
                             <div class="user-btn-action">
                                 <div class="search-menu-toggle icon-element icon-element-sm shadow-sm mr-2" data-toggle="tooltip" data-placement="top" title="Search">
                                     <i class="la la-search"></i>
@@ -201,25 +201,15 @@
                             <nav class="main-menu">
                                 <ul>
                                     <li>
-                                        <a href="#">Home <i class="la la-angle-down fs-12"></i></a>
-                                        <ul class="dropdown-menu-item">
-                                            <li><a href="index.html">Home One</a></li>
-                                            <li><a href="home-2.html">Home Two</a></li>
-                                            <li><a href="home-3.html">Home Three</a></li>
-                                            <li><a href="home-4.html">Home four</a></li>
-                                        </ul>
+                                        <router-link to="/">Home <i class="la  fs-12"></i></router-link>
+                                       
                                     </li>
                                     <li>
                                         <a href="#">courses <i class="la la-angle-down fs-12"></i></a>
                                         <ul class="dropdown-menu-item">
-                                            <li><a href="course-grid.html">course grid</a></li>
+                                           
                                             <li><a href="course-list.html">course list</a></li>
-                                            <li><a href="course-grid-left-sidebar.html">grid left sidebar</a></li>
-                                            <li><a href="course-grid-right-sidebar.html">grid right sidebar</a></li>
-                                            <li><a href="course-list-left-sidebar.html">list left sidebar <span class="ribbon ribbon-blue-bg">New</span></a></li>
-                                            <li><a href="course-list-right-sidebar.html">list right sidebar <span class="ribbon ribbon-blue-bg">New</span></a></li>
-                                            <li><a href="course-details.html">course details</a></li>
-                                            <li><a href="lesson-details.html">lesson details</a></li>
+                                       
                                             <li><a href="my-courses.html">My courses</a></li>
                                         </ul>
                                     </li>
@@ -230,7 +220,6 @@
                                             <li><a href="student-quiz.html">take quiz</a></li>
                                             <li><a href="student-quiz-results.html">quiz results</a></li>
                                             <li><a href="student-quiz-result-details.html">quiz details</a></li>
-                                            <li><a href="student-quiz-result-details-2.html">quiz details 2</a></li>
                                             <li><a href="student-path.html">path details</a></li>
                                             <li><a href="student-path-assessment.html">Skill Assessment</a></li>
                                             <li><a href="student-path-assessment-result.html">Skill result</a></li>
@@ -274,9 +263,10 @@
                                                         <div class="overlay rounded-rounded opacity-4"></div>
                                                         <div class="menu-banner-content p-4 position-absolute bottom-0 left-0">
                                                             <h4 class="fs-20 font-weight-bold pb-3 text-white">30 days free trail for new users</h4>
-                                                            <a href="sign-up.html" class="btn theme-btn theme-btn-sm theme-btn-white">Start Learning <i class="la la-arrow-right icon ml-1"></i></a>
+                                                            <router-link to="/register" class="btn theme-btn theme-btn-sm theme-btn-white">Start Learning <i class="la la-arrow-right icon ml-1"></i></router-link>
                                                         </div>
-                                                        <img src="images/menu-banner-img.jpg" alt="menu banner image" class="w-100 h-100 rounded-rounded">
+                                                        <img :src="'/frontend/images/menu-banner-img.jpg'" alt="menu banner image" class="w-100 h-100 rounded-rounded">
+                                                      
                                                     </div>
                                                 </li>
                                             </ul>
@@ -304,7 +294,7 @@
                                         <ul class="cart-dropdown-menu">
                                             <li class="media media-card">
                                                 <a href="shopping-cart.html" class="media-img">
-                                                    <img src="images/small-img.jpg" alt="Cart image">
+                                                    <img :src="'frontend/images/small-img.jpg'" alt="Cart image">
                                                 </a>
                                                 <div class="media-body">
                                                     <h5><a href="course-details.html">The Complete JavaScript Course 2021: From Zero to Expert!</a></h5>
@@ -314,7 +304,7 @@
                                             </li>
                                             <li class="media media-card">
                                                 <a href="shopping-cart.html" class="media-img">
-                                                    <img src="images/small-img.jpg" alt="Cart image">
+                                                    <img :src="'frontend/images/small-img.jpg'" alt="Cart image">
                                                 </a>
                                                 <div class="media-body">
                                                     <h5><a href="course-details.html">The Complete JavaScript Course 2021: From Zero to Expert!</a></h5>
@@ -569,6 +559,12 @@
 <script>
 export default {
   name: 'Header',
+  data() {
+    return {
+      
+      logoUrl: '/images/logo.png'
+    };
+  }
 
 }
 </script>
