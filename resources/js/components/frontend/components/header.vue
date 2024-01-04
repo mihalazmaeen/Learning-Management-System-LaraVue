@@ -559,12 +559,7 @@
 <script>
 export default {
   name: 'Header',
-  data() {
-    return {
-      
-      logoUrl: '/images/logo.png'
-    };
-  }
+  
 
 }
 </script>
