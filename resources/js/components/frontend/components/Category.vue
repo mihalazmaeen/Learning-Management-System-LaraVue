@@ -1,114 +1,113 @@
 <template>
-<section class="category-area pb-90px">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-9">
-                <div class="category-content-wrap">
-                    <div class="section-heading">
-                        <h5 class="ribbon ribbon-lg mb-2">Categories</h5>
-                        <h2 class="section__title">Popular Categories</h2>
-                        <span class="section-divider"></span>
-                    </div><!-- end section-heading -->
+    <section class="category-area pb-90px">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-9">
+                    <div class="category-content-wrap">
+                        <div class="section-heading">
+                            <h5 class="ribbon ribbon-lg mb-2">Categories</h5>
+                            <h2 class="section__title">Popular Categories</h2>
+                            <span class="section-divider"></span>
+                        </div>
+                    </div>
                 </div>
-            </div><!-- end col-lg-9 -->
-            <div class="col-lg-3">
-                <div class="category-btn-box text-right">
-                    <a href="categories.html" class="btn theme-btn">All Categories <i class="la la-arrow-right icon ml-1"></i></a>
-                </div><!-- end category-btn-box-->
-            </div><!-- end col-lg-3 -->
-        </div><!-- end row -->
-        <div class="category-wrapper mt-30px">
-            <div class="row">
-                <div class="col-lg-4 responsive-column-half">
-                    <div class="category-item">
-                        <img  class="cat__img lazy" :src="'/frontend/images/img-loading.png'" data-src="frontend/images/img1.jpg" alt="Category image">
-                        <div class="category-content">
-                            <div class="category-inner">
-                                <h3 class="cat__title"><a href="#">Business Study</a></h3>
-                                <p class="cat__meta">9 courses</p>
-                                <a href="#" class="btn theme-btn theme-btn-sm theme-btn-white">Explore<i class="la la-arrow-right icon ml-1"></i></a>
+                <div class="col-lg-3">
+                    <div class="category-btn-box text-right">
+                        <router-link to="/categories" class="btn theme-btn">
+                            All Categories
+                            <i class="la la-arrow-right icon ml-1"></i>
+                        </router-link>
+                    </div>
+                </div>
+            </div>
+            <div class="category-wrapper mt-30px">
+                <div class="row">
+                    <div
+                        v-for="(category, index) in categories"
+                        :key="index"
+                        class="col-lg-4 responsive-column-half"
+                    >
+                        <div class="category-item">
+                            <img
+                                class="cat__img lazy"
+                                :src="category.image"
+                                data-src="images/img-loading.png"
+                                alt="Category image"
+                            />
+                            <div class="category-content">
+                                <div class="category-inner">
+                                    <h3 class="cat__title">
+                                        <router-link :to="category.link">{{
+                                            category.title
+                                        }}</router-link>
+                                    </h3>
+                                    <p class="cat__meta">
+                                        {{ category.courses }} courses
+                                    </p>
+                                    <router-link
+                                        :to="category.link"
+                                        class="btn theme-btn theme-btn-sm theme-btn-white"
+                                    >
+                                        Explore<i
+                                            class="la la-arrow-right icon ml-1"
+                                        ></i>
+                                    </router-link>
+                                </div>
                             </div>
-                        </div><!-- end category-content -->
-                    </div><!-- end category-item -->
-                </div><!-- end col-lg-4 -->
-                <div class="col-lg-4 responsive-column-half">
-                    <div class="category-item">
-                        <img  class="cat__img lazy" :src="'/frontend/images/img-loading.png'" data-src="frontend/images/img2.jpg" alt="Category image">
-                        <div class="category-content">
-                            <div class="category-inner">
-                                <h3 class="cat__title"><a href="#">Art & Design</a></h3>
-                                <p class="cat__meta">7 courses</p>
-                                <a href="#" class="btn theme-btn theme-btn-sm theme-btn-white">Explore<i class="la la-arrow-right icon ml-1"></i></a>
-                            </div>
-                        </div><!-- end category-content -->
-                    </div><!-- end category-item -->
-                </div><!-- end col-lg-4 -->
-                <div class="col-lg-4 responsive-column-half">
-                    <div class="category-item">
-                        <img  class="cat__img lazy" :src="'/frontend/images/img-loading.png'" data-src="frontend/images/img3.jpg" alt="Category image">
-                        <div class="category-content">
-                            <div class="category-inner">
-                                <h3 class="cat__title"><a href="#">Web Development</a></h3>
-                                <p class="cat__meta">8 courses</p>
-                                <a href="#" class="btn theme-btn theme-btn-sm theme-btn-white">Explore<i class="la la-arrow-right icon ml-1"></i></a>
-                            </div>
-                        </div><!-- end category-content -->
-                    </div><!-- end category-item -->
-                </div><!-- end col-lg-4 -->
-                <div class="col-lg-4 responsive-column-half">
-                    <div class="category-item">
-                        <img  class="cat__img lazy" :src="'/frontend/images/img-loading.png'" data-src="frontend/images/img4.jpg" alt="Category image">
-                        <div class="category-content">
-                            <div class="category-inner">
-                                <h3 class="cat__title"><a href="#">Health & Fitness</a></h3>
-                                <p class="cat__meta">6 courses</p>
-                                <a href="#" class="btn theme-btn theme-btn-sm theme-btn-white">Explore<i class="la la-arrow-right icon ml-1"></i></a>
-                            </div>
-                        </div><!-- end category-content -->
-                    </div><!-- end category-item -->
-                </div><!-- end col-lg-4 -->
-                <div class="col-lg-4 responsive-column-half">
-                    <div class="category-item">
-                        <img  class="cat__img lazy" :src="'/frontend/images/img-loading.png'" data-src="frontend/images/img5.jpg" alt="Category image">
-                        <div class="category-content">
-                            <div class="category-inner">
-                                <h3 class="cat__title"><a href="#">Photography</a></h3>
-                                <p class="cat__meta">7 courses</p>
-                                <a href="#" class="btn theme-btn theme-btn-sm theme-btn-white">Explore<i class="la la-arrow-right icon ml-1"></i></a>
-                            </div>
-                        </div><!-- end category-content -->
-                    </div><!-- end category-item -->
-                </div><!-- end col-lg-4 -->
-                <div class="col-lg-4 responsive-column-half">
-                    <div class="category-item">
-                        <img  class="cat__img lazy" :src="'/frontend/images/img-loading.png'" data-src="frontend/images/img6.jpg" alt="Category image">
-                        <div class="category-content">
-                            <div class="category-inner">
-                                <h3 class="cat__title"><a href="#">Mathematics</a></h3>
-                                <p class="cat__meta">8 courses</p>
-                                <a href="#" class="btn theme-btn theme-btn-sm theme-btn-white">Explore<i class="la la-arrow-right icon ml-1"></i></a>
-                            </div>
-                        </div><!-- end category-content -->
-                    </div><!-- end category-item -->
-                </div><!-- end col-lg-4 -->
-            </div><!-- end row -->
-        </div><!-- end category-wrapper -->
-    </div><!-- end container -->
-</section>
-
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </template>
 
-
 <script>
-export default{
-    name:'Category'
-}
-
+export default {
+    name: "Category",
+    data() {
+        return {
+            categories: [
+                {
+                    title: "Business Study",
+                    image: "/frontend/images/img1.jpg",
+                    link: "/business-study",
+                    courses: 9,
+                },
+                {
+                    title: "Art & Design",
+                    image: "/frontend/images/img2.jpg",
+                    link: "/art-design",
+                    courses: 7,
+                },
+                {
+                    title: "Web Development",
+                    image: "/frontend/images/img3.jpg",
+                    link: "/web-development",
+                    courses: 8,
+                },
+                {
+                    title: "Health & Fitness",
+                    image: "/frontend/images/img4.jpg",
+                    link: "/health-fitness",
+                    courses: 6,
+                },
+                {
+                    title: "Photography",
+                    image: "/frontend/images/img5.jpg",
+                    link: "/photography",
+                    courses: 7,
+                },
+                {
+                    title: "Mathematics",
+                    image: "/frontend/images/img6.jpg",
+                    link: "/mathematics",
+                    courses: 8,
+                },
+            ],
+        };
+    },
+};
 </script>
 
-
-<style>
-
-
-
-</style>
+<style></style>
