@@ -18,18 +18,22 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="{{asset('frontend/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/line-awesome.css')}}">
-    <link rel="stylesheet" href="{{asset('frontend/css/owl.carousel.min.css')}}">
-    <link rel="stylesheet" href="{{asset('frontend/css/owl.theme.default.min.css')}}">
+    {{-- <link rel="stylesheet" href="{{asset('frontend/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/css/owl.theme.default.min.css')}}"> --}}
     <link rel="stylesheet" href="{{asset('frontend/css/bootstrap-select.min.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/fancybox.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/tooltipster.bundle.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
-      @vite('resources/js/app.js','resources/css/app.css')
+     @vite('resources/js/app.js','resources/css/app.css')
+     
     <!-- end inject -->
 </head>
 <body>
 
 <!-- start cssload-loader -->
+
+<!-- end cssload-loader -->
+<div id="app">
 <div class="preloader">
     <div class="loader">
         <svg class="spinner" viewBox="0 0 50 50">
@@ -37,8 +41,6 @@
         </svg>
     </div>
 </div>
-<!-- end cssload-loader -->
-<div id="app">
 
 <router-view>
 
@@ -199,10 +201,11 @@
 
 
 <!-- template js files -->
+
 <script src="{{asset('frontend/js/jquery-3.4.1.min.js')}}"></script>
 <script src="{{asset('frontend/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('frontend/js/bootstrap-select.min.js')}}"></script>
-<script src="{{asset('frontend/js/owl.carousel.min.js')}}"></script>
+{{-- <script src="{{asset('frontend/js/owl.carousel.min.js')}}"></script> --}}
 <script src="{{asset('frontend/js/isotope.js')}}"></script>
 <script src="{{asset('frontend/js/waypoint.min.js')}}"></script>
 <script src="{{asset('frontend/js/jquery.counterup.min.js')}}"></script>
