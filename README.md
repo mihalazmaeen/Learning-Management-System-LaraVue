@@ -1,2 +1,3 @@
 Complete Learning Management System
-Features:
+Technologies Used:
+
