@@ -16,79 +16,47 @@
                 id="myTab"
                 role="tablist"
             >
-                <li class="nav-item">
-                    <a
-                        class="nav-link active"
-                        id="business-tab"
-                        data-toggle="tab"
-                        href="#business"
-                        role="tab"
-                        aria-controls="business"
-                        aria-selected="true"
-                        >Business</a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a
-                        class="nav-link"
-                        id="design-tab"
-                        data-toggle="tab"
-                        href="#design"
-                        role="tab"
-                        aria-controls="design"
-                        aria-selected="false"
-                        >Design</a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a
-                        class="nav-link"
-                        id="development-tab"
-                        data-toggle="tab"
-                        href="#development"
-                        role="tab"
-                        aria-controls="development"
-                        aria-selected="false"
-                        >Development</a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a
-                        class="nav-link"
-                        id="drawing-tab"
-                        data-toggle="tab"
-                        href="#drawing"
-                        role="tab"
-                        aria-controls="drawing"
-                        aria-selected="false"
-                        >Drawing</a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a
-                        class="nav-link"
-                        id="marketing-tab"
-                        data-toggle="tab"
-                        href="#marketing"
-                        role="tab"
-                        aria-controls="marketing"
-                        aria-selected="false"
-                        >Marketing</a
-                    >
-                </li>
+                <template v-for="(type, index) in types" :key="index">
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            :class="{ active: index === 0 }"
+                            :id="
+                                type.name.toLowerCase().replace(/\s+/g, '-') +
+                                '-tab'
+                            "
+                            data-toggle="tab"
+                            :href="
+                                '#' +
+                                type.name.toLowerCase().replace(/\s+/g, '-')
+                            "
+                            role="tab"
+                            :aria-controls="
+                                type.name.toLowerCase().replace(/\s+/g, '-')
+                            "
+                            :aria-selected="index === 0"
+                        >
+                            {{ type.name }}
+                        </a>
+                    </li>
+                </template>
+
             </ul>
         </div>
         <!-- end container -->
         <div class="card-content-wrapper bg-gray pt-50px pb-120px">
             <div class="container">
                 <div class="tab-content" id="myTabContent">
-                    <div
-                        class="tab-pane fade show active"
-                        id="business"
-                        role="tabpanel"
-                        aria-labelledby="business-tab"
-                    >
-                        <div class="row">
+
+                    <template v-for="(type, index) in types" :key="index">
+                        <div
+                            class="tab-pane fade"
+                            :class="{ 'show active': index === 0 }"
+                            :id="type.name.toLowerCase().replace(/\s+/g, '-')"
+                            role="tabpanel"
+                            :aria-labelledby="type.name.toLowerCase().replace(/\s+/g, '-') + '-tab'"
+                        >
+                             <div class="row">
                             <div
                                 v-for="(course, index) in courses"
                                 :key="index"
@@ -184,469 +152,12 @@
                                 </div>
                                 <!-- end card -->
                             </div>
-                            <!-- end col-lg-4 -->
+                        </div>
+                            
+                        </div>
+                        
+                    </template>
 
-                            <!-- end col-lg-4 -->
-                        </div>
-                        <!-- end row -->
-                    </div>
-                    <!-- end tab-pane -->
-                    <div
-                        class="tab-pane fade"
-                        id="design"
-                        role="tabpanel"
-                        aria-labelledby="design-tab"
-                    >
-                        <div class="row">
-                            <div class="col-lg-4 responsive-column-half">
-                                <div
-                                    class="card card-item card-preview"
-                                    data-tooltip-content="#tooltip_content_2"
-                                >
-                                    <div class="card-image">
-                                        <a
-                                            href="course-details.html"
-                                            class="d-block"
-                                        >
-                                            <img
-                                                class="card-img-top lazy"
-                                                :src="'/frontend/images/img-loading.png'"
-                                                data-src="/frontend/images/img11.jpg"
-                                                alt="Card image cap"
-                                            />
-                                        </a>
-                                    </div>
-                                    <!-- end card-image -->
-                                    <div class="card-body">
-                                        <h6
-                                            class="ribbon ribbon-blue-bg fs-14 mb-3"
-                                        >
-                                            Beginner
-                                        </h6>
-                                        <h5 class="card-title">
-                                            <a href="course-details.html"
-                                                >Ultimate Adobe Photoshop
-                                                Training: From Beginner to
-                                                Pro</a
-                                            >
-                                        </h5>
-                                        <p class="card-text">
-                                            <a href="teacher-detail.html"
-                                                >Jose Portilla</a
-                                            >
-                                        </p>
-                                        <div
-                                            class="rating-wrap d-flex align-items-center py-2"
-                                        >
-                                            <div class="review-stars">
-                                                <span class="rating-number"
-                                                    >4.4</span
-                                                >
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star"></span>
-                                                <span
-                                                    class="la la-star-o"
-                                                ></span>
-                                            </div>
-                                            <span class="rating-total pl-1"
-                                                >(20,230)</span
-                                            >
-                                        </div>
-                                        <!-- end rating-wrap -->
-                                        <div
-                                            class="d-flex justify-content-between align-items-center"
-                                        >
-                                            <p
-                                                class="card-price text-black font-weight-bold"
-                                            >
-                                                129.99
-                                            </p>
-                                            <div
-                                                class="icon-element icon-element-sm shadow-sm cursor-pointer"
-                                                title="Add to Wishlist"
-                                            >
-                                                <i class="la la-heart-o"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- end card-body -->
-                                </div>
-                                <!-- end card -->
-                            </div>
-                            <!-- end col-lg-4 -->
-                            <div class="col-lg-4 responsive-column-half">
-                                <div
-                                    class="card card-item card-preview"
-                                    data-tooltip-content="#tooltip_content_2"
-                                >
-                                    <div class="card-image">
-                                        <a
-                                            href="course-details.html"
-                                            class="d-block"
-                                        >
-                                            <img
-                                                class="card-img-top lazy"
-                                                :src="'/frontend/images/img-loading.png'"
-                                                data-src="/frontend/images/img12.jpg"
-                                                alt="Card image cap"
-                                            />
-                                        </a>
-                                        <div class="course-badge-labels">
-                                            <div class="course-badge green">
-                                                Free
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- end card-image -->
-                                    <div class="card-body">
-                                        <h6
-                                            class="ribbon ribbon-blue-bg fs-14 mb-3"
-                                        >
-                                            Beginner
-                                        </h6>
-                                        <h5 class="card-title">
-                                            <a href="course-details.html"
-                                                >Ultimate Adobe Photoshop
-                                                Training: From Beginner to
-                                                Pro</a
-                                            >
-                                        </h5>
-                                        <p class="card-text">
-                                            <a href="teacher-detail.html"
-                                                >Jose Portilla</a
-                                            >
-                                        </p>
-                                        <div
-                                            class="rating-wrap d-flex align-items-center py-2"
-                                        >
-                                            <div class="review-stars">
-                                                <span class="rating-number"
-                                                    >4.4</span
-                                                >
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star"></span>
-                                                <span
-                                                    class="la la-star-o"
-                                                ></span>
-                                            </div>
-                                            <span class="rating-total pl-1"
-                                                >(20,230)</span
-                                            >
-                                        </div>
-                                        <!-- end rating-wrap -->
-                                        <div
-                                            class="d-flex justify-content-between align-items-center"
-                                        >
-                                            <p
-                                                class="card-price text-black font-weight-bold"
-                                            >
-                                                Free
-                                            </p>
-                                            <div
-                                                class="icon-element icon-element-sm shadow-sm cursor-pointer"
-                                                title="Add to Wishlist"
-                                            >
-                                                <i class="la la-heart-o"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- end card-body -->
-                                </div>
-                                <!-- end card -->
-                            </div>
-                            <!-- end col-lg-4 -->
-                            <div class="col-lg-4 responsive-column-half">
-                                <div
-                                    class="card card-item card-preview"
-                                    data-tooltip-content="#tooltip_content_2"
-                                >
-                                    <div class="card-image">
-                                        <a
-                                            href="course-details.html"
-                                            class="d-block"
-                                        >
-                                            <img
-                                                class="card-img-top lazy"
-                                                :src="'/frontend/images/img-loading.png'"
-                                                data-src="/frontend/images/img13.jpg"
-                                                alt="Card image cap"
-                                            />
-                                        </a>
-                                        <div class="course-badge-labels">
-                                            <div class="course-badge sky-blue">
-                                                Highest rated
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- end card-image -->
-                                    <div class="card-body">
-                                        <h6
-                                            class="ribbon ribbon-blue-bg fs-14 mb-3"
-                                        >
-                                            Beginner
-                                        </h6>
-                                        <h5 class="card-title">
-                                            <a href="course-details.html"
-                                                >Ultimate Adobe Photoshop
-                                                Training: From Beginner to
-                                                Pro</a
-                                            >
-                                        </h5>
-                                        <p class="card-text">
-                                            <a href="teacher-detail.html"
-                                                >Jose Portilla</a
-                                            >
-                                        </p>
-                                        <div
-                                            class="rating-wrap d-flex align-items-center py-2"
-                                        >
-                                            <div class="review-stars">
-                                                <span class="rating-number"
-                                                    >4.4</span
-                                                >
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star"></span>
-                                                <span
-                                                    class="la la-star-o"
-                                                ></span>
-                                            </div>
-                                            <span class="rating-total pl-1"
-                                                >(20,230)</span
-                                            >
-                                        </div>
-                                        <!-- end rating-wrap -->
-                                        <div
-                                            class="d-flex justify-content-between align-items-center"
-                                        >
-                                            <p
-                                                class="card-price text-black font-weight-bold"
-                                            >
-                                                129.99
-                                            </p>
-                                            <div
-                                                class="icon-element icon-element-sm shadow-sm cursor-pointer"
-                                                title="Add to Wishlist"
-                                            >
-                                                <i class="la la-heart-o"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- end card-body -->
-                                </div>
-                                <!-- end card -->
-                            </div>
-                            <!-- end col-lg-4 -->
-                        </div>
-                        <!-- end row -->
-                    </div>
-                    <!-- end tab-pane -->
-                    <div
-                        class="tab-pane fade"
-                        id="development"
-                        role="tabpanel"
-                        aria-labelledby="development-tab"
-                    >
-                        <div class="row">
-                            <div class="col-lg-4 responsive-column-half">
-                                <div
-                                    class="card card-item card-preview"
-                                    data-tooltip-content="#tooltip_content_2"
-                                >
-                                    <div class="card-image">
-                                        <a
-                                            href="course-details.html"
-                                            class="d-block"
-                                        >
-                                            <img
-                                                class="card-img-top lazy"
-                                                :src="'/frontend/images/img-loading.png'"
-                                                data-src="/frontend/images/img13.jpg"
-                                                alt="Card image cap"
-                                            />
-                                        </a>
-                                        <div class="course-badge-labels">
-                                            <div class="course-badge sky-blue">
-                                                Highest rated
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- end card-image -->
-                                    <div class="card-body">
-                                        <h6
-                                            class="ribbon ribbon-blue-bg fs-14 mb-3"
-                                        >
-                                            Beginner
-                                        </h6>
-                                        <h5 class="card-title">
-                                            <a href="course-details.html"
-                                                >Ultimate Adobe Photoshop
-                                                Training: From Beginner to
-                                                Pro</a
-                                            >
-                                        </h5>
-                                        <p class="card-text">
-                                            <a href="teacher-detail.html"
-                                                >Jose Portilla</a
-                                            >
-                                        </p>
-                                        <div
-                                            class="rating-wrap d-flex align-items-center py-2"
-                                        >
-                                            <div class="review-stars">
-                                                <span class="rating-number"
-                                                    >4.4</span
-                                                >
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star"></span>
-                                                <span
-                                                    class="la la-star-o"
-                                                ></span>
-                                            </div>
-                                            <span class="rating-total pl-1"
-                                                >(20,230)</span
-                                            >
-                                        </div>
-                                        <!-- end rating-wrap -->
-                                        <div
-                                            class="d-flex justify-content-between align-items-center"
-                                        >
-                                            <p
-                                                class="card-price text-black font-weight-bold"
-                                            >
-                                                129.99
-                                            </p>
-                                            <div
-                                                class="icon-element icon-element-sm shadow-sm cursor-pointer"
-                                                title="Add to Wishlist"
-                                            >
-                                                <i class="la la-heart-o"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- end card-body -->
-                                </div>
-                                <!-- end card -->
-                            </div>
-
-                            <div class="col-lg-4 responsive-column-half">
-                                <div
-                                    class="card card-item card-preview"
-                                    data-tooltip-content="#tooltip_content_2"
-                                >
-                                    <div class="card-image">
-                                        <a
-                                            href="course-details.html"
-                                            class="d-block"
-                                        >
-                                            <img
-                                                class="card-img-top lazy"
-                                                :src="'/frontend/images/img-loading.png'"
-                                                data-src="/frontend/images/img13.jpg"
-                                                alt="Card image cap"
-                                            />
-                                        </a>
-                                        <div class="course-badge-labels">
-                                            <div class="course-badge sky-blue">
-                                                Highest rated
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- end card-image -->
-                                    <div class="card-body">
-                                        <h6
-                                            class="ribbon ribbon-blue-bg fs-14 mb-3"
-                                        >
-                                            Beginner
-                                        </h6>
-                                        <h5 class="card-title">
-                                            <a href="course-details.html"
-                                                >Ultimate Adobe Photoshop
-                                                Training: From Beginner to
-                                                Pro</a
-                                            >
-                                        </h5>
-                                        <p class="card-text">
-                                            <a href="teacher-detail.html"
-                                                >Jose Portilla</a
-                                            >
-                                        </p>
-                                        <div
-                                            class="rating-wrap d-flex align-items-center py-2"
-                                        >
-                                            <div class="review-stars">
-                                                <span class="rating-number"
-                                                    >4.4</span
-                                                >
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star"></span>
-                                                <span
-                                                    class="la la-star-o"
-                                                ></span>
-                                            </div>
-                                            <span class="rating-total pl-1"
-                                                >(20,230)</span
-                                            >
-                                        </div>
-                                        <!-- end rating-wrap -->
-                                        <div
-                                            class="d-flex justify-content-between align-items-center"
-                                        >
-                                            <p
-                                                class="card-price text-black font-weight-bold"
-                                            >
-                                                129.99
-                                            </p>
-                                            <div
-                                                class="icon-element icon-element-sm shadow-sm cursor-pointer"
-                                                title="Add to Wishlist"
-                                            >
-                                                <i class="la la-heart-o"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- end card-body -->
-                                </div>
-                                <!-- end card -->
-                            </div>
-                            <!-- end col-lg-4 -->
-                        </div>
-                        <!-- end row -->
-                    </div>
-                    <!-- end tab-pane -->
-                    <div
-                        class="tab-pane fade"
-                        id="drawing"
-                        role="tabpanel"
-                        aria-labelledby="drawing-tab"
-                    >
-                        <div class="row">
-                            <!-- end col-lg-4 -->
-                        </div>
-                        <!-- end row -->
-                    </div>
-                    <!-- end tab-pane -->
-                    <div
-                        class="tab-pane fade"
-                        id="marketing"
-                        role="tabpanel"
-                        aria-labelledby="marketing-tab"
-                    >
-                        <div class="row">
-                            <!-- end col-lg-4 -->
-                        </div>
-                        <!-- end row -->
-                    </div>
-                    <!-- end tab-pane -->
                 </div>
                 <!-- end tab-content -->
                 <div class="more-btn-box mt-4 text-center">
@@ -666,21 +177,50 @@
 <script>
 export default {
     name: "Courses",
-      data() {
+    data() {
         return {
+            types: [
+                {
+                    name: "Development",
+                },
+                {
+                    name: "Programming",
+                },
+                {
+                    name: "Cooking",
+                },
+            ],
             courses: [
                 {
                     image: "/frontend/images/img8.jpg",
-                    title: "The Business Intelligence Analyst Course 2021",
+                    title: "The Business Course 2021",
                     teacher: "Jose Portilla",
-                    link:"/course-details",
+                    link: "/course-details",
                     rating: "4.4",
                     totalRating: "20,230",
                     currentPrice: "12.99",
                     beforePrice: "125",
-                   
-                }
-
+                },
+                {
+                    image: "/frontend/images/img8.jpg",
+                    title: "The Laravel HMVC Course 2022",
+                    teacher: "Abul kalam Azad",
+                    link: "/course-details",
+                    rating: "4.9",
+                    totalRating: "20,230",
+                    currentPrice: "12.99",
+                    beforePrice: "125",
+                },
+                {
+                    image: "/frontend/images/img8.jpg",
+                    title: "The MSSQL Course 2022",
+                    teacher: "Imam Masum",
+                    link: "/course-details",
+                    rating: "4.9",
+                    totalRating: "20,230",
+                    currentPrice: "12.99",
+                    beforePrice: "125",
+                },
             ],
         };
     },
