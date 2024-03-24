@@ -1,3 +1,3 @@
-Complete Learning Management System
+Complete Learning Management System.
 Technologies Used:
 
